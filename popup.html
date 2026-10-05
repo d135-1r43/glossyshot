@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="logo"></span>Glossyshot</div>
+    <button id="retake" class="ghost" title="Capture again">↻</button>
+  </header>
+
+  <div id="preview" class="preview loading">
+    <div class="spinner"></div>
+    <img id="previewImg" alt="">
+    <p id="error" class="error" hidden></p>
+  </div>
+  <div id="meta" class="meta"></div>
+
+  <div class="actions">
+    <button id="download" class="primary" disabled>
+      <span class="label">Download PNG</span>
+    </button>
+    <button id="copy" class="secondary" disabled>
+      <span class="label">Copy</span>
+    </button>
+  </div>
+
+  <section class="settings">
+    <div class="row">
+      <label>Viewport</label>
+      <div class="seg" data-key="viewport">
+        <button data-value="1024x640">1024</button>
+        <button data-value="1280x800">1280</button>
+        <button data-value="1440x900">1440</button>
+        <button data-value="1920x1200">1920</button>
+        <button data-value="window" title="Use the window as it is">Window</button>
+      </div>
+    </div>
+    <div class="row" id="scaleRow">
+      <label title="Pixel density of the PNG. 2× stays crisp on big screens and projectors.">Sharpness</label>
+      <div class="seg" data-key="scale">
+        <button data-value="1">1×</button>
+        <button data-value="2">2×</button>
+        <button data-value="3">3×</button>
+      </div>
+    </div>
+    <div class="row">
+      <label>Frame</label>
+      <div class="seg" data-key="theme">
+        <button data-value="light">Light</button>
+        <button data-value="dark">Dark</button>
+      </div>
+    </div>
+    <div class="row">
+      <label>Padding</label>
+      <div class="seg" data-key="padding">
+        <button data-value="s">S</button>
+        <button data-value="m">M</button>
+        <button data-value="l">L</button>
+      </div>
+    </div>
+    <div class="row">
+      <label>Background</label>
+      <div class="swatches" id="swatches" data-key="background"></div>
+    </div>
+    <div class="row">
+      <label for="autoSave">Instant save</label>
+      <label class="switch">
+        <input type="checkbox" id="autoSave">
+        <span></span>
+      </label>
+    </div>
+  </section>
+
+  <div id="toast" class="toast"></div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
